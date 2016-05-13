@@ -6,8 +6,8 @@ VB_Binary_Logit_Fit <- function(X, y, a0=1e-2, b0=1e-4)
   #X = test$X
   #y = test$y
 
+  library(MASS)
 
-  #library(MASS)
   temp = dim(X)
   N = temp[1]
   D = temp[2]

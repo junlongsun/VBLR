@@ -8,4 +8,5 @@ classTransferY <- function(y, class)
         newY[i] = 1
     }
   }
+  return(newY)
 }
