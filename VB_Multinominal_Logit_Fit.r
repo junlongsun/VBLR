@@ -4,8 +4,7 @@ VB_Multinominal_Logit_Fit <- function(X, Y, typeNum, loop = 10)
   n = temp[1]
   d = temp[2]
 
-  py_test_VB = array(0,c(n,typeNum))
-
+  
   muHatVB = array(0, c(d, typeNum) )
   sigmaHatVB = array(0, c(d, d, typeNum) )
   for (i in 1:typeNum){
@@ -35,4 +34,6 @@ VB_Multinominal_Logit_Fit <- function(X, Y, typeNum, loop = 10)
           muVB[,k] = ginv( t(X) %*% X ) %*% X %*% yhat
       }
   }
+
+  return(muVB)
 }
