@@ -1,4 +1,4 @@
-VB_Multinominal_Logit_Predict <- function(X, beta)
+VB_Multinominal_Logit_Predict01 <- function(X, beta)
 {
   temp = dim(X)
   n = temp[1]
@@ -17,5 +17,5 @@ VB_Multinominal_Logit_Predict <- function(X, beta)
 
     py_class[i] = which.max( py_class_each[i,] )
   }
-  return py_class
+  return(py_class)
 }
