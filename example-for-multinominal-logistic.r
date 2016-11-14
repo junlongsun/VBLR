@@ -7,3 +7,6 @@ Y_test = data$Y.test
 
 output1 = VB_Multinominal_Logit_Fit(X_train, Y_train, typeNum=3, loop = 10)
 output2 = VB_Multinominal_Logit_Fit(X_train, Y_train, typeNum=3, loop = 10, startWithAlpha = 1)
+
+output3 = VB_Multinominal_Logit_Predict(X_test, output1)
+output4 = VB_Multinominal_Logit_Predict(X_test, output2)
