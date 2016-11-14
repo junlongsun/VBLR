@@ -56,6 +56,6 @@ VB_Binary_Logit_Fit_startAlpha <- function(X, y, a0=1e-2, b0=1e-4)
   ## add constant terms to variational bound
   L = L - lgamma(a0) + a0 * log(b0)
 
-  output = list(mu=muN, Sigma=SigmaN, invSigma = invSigmaN, logdetSigma = logdetSigmaN, E_a = E_a, L = L)
+  output = list(w=muN,V=SigmaN, invV = invSigmaN, E_a = E_a, L = L)
   return(output)
 }
