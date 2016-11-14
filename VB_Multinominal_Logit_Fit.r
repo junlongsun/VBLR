@@ -1,4 +1,4 @@
-VB_Multinominal_Logit_Fit <- function(X, y, typeNum, loop = 10)
+VB_Multinominal_Logit_Fit <- function(X, y, typeNum, loop = 10, startWithAlpha=False)
 {
   temp = dim(X)
   n = temp[1]
@@ -8,7 +8,13 @@ VB_Multinominal_Logit_Fit <- function(X, y, typeNum, loop = 10)
   muHatVB = array(0, c(d, typeNum) )
   sigmaHatVB = array(0, c(d, d, typeNum) )
   for (i in 1:typeNum){
-    output = VB_Binary_Logit_Fit(X, classTransferY(y,i) );
+    if (startWithAlpha){
+      output = VB_Binary_Logit_Fit_startAlpha(X, classTransferY(y,i) );
+    }
+    else{
+      output = VB_Binary_Logit_Fit(X, classTransferY(y,i) );
+    }
+
     muHatVB[,i] = output$w
     sigmaHatVB[,,i] = output$V
   }
