@@ -1,9 +1,5 @@
 VB_Binary_Logit_Predict <- function(X, w, V, invV)
 {
-  #w=output$w
-  #V=output$V
-  #invV=output$invV
-
   max_iter = 500
 
   temp = dim(X)

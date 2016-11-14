@@ -1,8 +1,8 @@
-VB_Binary_Logit_Predict01 <- function(X, mu, Sigma, invSigma)
+VB_Binary_Logit_Predict01 <- function(X, w, V, invV)
 {
-  #w=output$w
-  #V=output$V
-  #invV=output$invV
+  mu = w
+  Sigma = V
+  invSigma = invV
 
   max_iter = 500
 

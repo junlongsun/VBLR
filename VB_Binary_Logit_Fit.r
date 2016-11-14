@@ -1,5 +1,7 @@
 VB_Binary_Logit_Fit <- function(X, y, a0=1e-2, b0=1e-4)
 {
+  y[y==0]=-1
+
   library(MASS)
 
   temp = dim(X)
