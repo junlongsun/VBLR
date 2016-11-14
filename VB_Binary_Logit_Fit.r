@@ -60,3 +60,11 @@ VB_Binary_Logit_Fit <- function(X, y, a0=1e-2, b0=1e-4)
   output = list(w=w,V=V, invV = invV, logdetV = logdetV, E_a = E_a, L = L)
   return(output)
 }
+
+lam <- function(xi)
+{
+  out = tanh(xi / 2) / (4 * xi)
+  out[is.nan(out)] = 1/8;
+
+  return(out)
+}

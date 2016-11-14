@@ -1,4 +1,4 @@
-VB_Multinominal_Logit_Predict01 <- function(X, beta)
+VB_Multinominal_Logit_Predict <- function(X, beta)
 {
   temp = dim(X)
   n = temp[1]

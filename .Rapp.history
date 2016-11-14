@@ -1,87 +1,19 @@
-rnd = rnorm(25, mean = 0, sd = 0.8)#
-x = rnorm(25, mean = 5, sd = 1)#
-y = array(0, c(25,1))#
-X = array(0, c(25,2))#
-#
-for (i in 1:25 ) {#
-y[i] = 1 + 2*x[i] + rnd[i]#
-X[i, 1] = 1#
-X[i, 2] = x[i]#
-}#
-#
-H = X %*% solve(t(X) %*% X) %*% t(X)#
-sum(diag(H))#
-#
-fit = lm(y ~ x)#
-summary(fit)
-library(car)
-ncvTest(fit)
-spreadLevelPlot(fit)
-durbinWatsonTest(fit)
-rnd = rnorm(25, mean = 0, sd = 0.8)#
-x = rnorm(25, mean = 5, sd = 1)#
-y = array(0, c(25,1))#
-X = array(0, c(25,2))#
-#
-for (i in 1:25 ) {#
-y[i] = 1 + 2*x[i] + rnd[i]#
-X[i, 1] = 1#
-X[i, 2] = x[i]#
-}#
-#
-H = X %*% solve(t(X) %*% X) %*% t(X)#
-sum(diag(H))
-H
-fit = lm(y ~ x)
-library(car)
-crPlots(fit)
-durbinWatsonTest(fit)
-vcov(fit)
-cor(resid(fit),resid(fit))
-resid(fit)
-durbinWatsonTest(resid(fit))
-resid(fit)
-fit
-acf(fit)
-acf(resid(fit))
-diag(H)
-plot(fitted(fit), residuals(fit), xlab="fitted value", ylab="Residuals")
-H[1,2:-1]
-H[1,2:end]
-H[1,2]
-H[1,2:]
-H[1,2:-1]
-H[1,2:25]
-source('~/Documents/Git/VBLR/bsxfun4times.r', chdir = TRUE)#
-source('~/Documents/Git/VBLR/lambdaF.r', chdir = TRUE)
-source('~/Documents/Git/VBLR/VB_Binary_Logit_Fit01.r', chdir = TRUE)
+source('~/Dropbox/Github/VBLR/VB_Binary_Logit_Fit_startAlpha.r', chdir = TRUE)#
+source('~/Dropbox/Github/VBLR/VB_Binary_Logit_Fit.r', chdir = TRUE)#
+source('~/Dropbox/Github/VBLR/VB_Binary_Logit_Predict.r', chdir = TRUE)#
+source('~/Dropbox/Github/VBLR/VB_Multinominal_Logit_Fit.r', chdir = TRUE)#
+source('~/Dropbox/Github/VBLR/VB_Multinominal_Logit_Predict.r', chdir = TRUE)
 library(R.matlab)#
-data=readMat('simulation01.mat')#
+data=readMat('example-for-logistic.mat')#
 X=data$X.ext#
-y=data$y01#
-output = VB_Binary_Logit_Fit01(X, y, a0=1e-2, b0=1e-4)
-source('~/Documents/Git/VBLR/VB_Binary_Logit_Fit01.r', chdir = TRUE)
-library(R.matlab)#
-data=readMat('simulation01.mat')#
-X=data$X.ext#
-y=data$y01#
-output = VB_Binary_Logit_Fit01(X, y, a0=1e-2, b0=1e-4)
-source('~/Documents/Git/VBLR/VB_Binary_Logit_Fit01.r', chdir = TRUE)
-library(R.matlab)#
-data=readMat('simulation01.mat')#
-X=data$X.ext#
-y=data$y01#
-output = VB_Binary_Logit_Fit01(X, y, a0=1e-2, b0=1e-4)
-source('~/Documents/Git/VBLR/VB_Binary_Logit_Fit01.r', chdir = TRUE)
-library(R.matlab)#
-data=readMat('simulation01.mat')#
-X=data$X.ext#
-y=data$y01#
-output = VB_Binary_Logit_Fit01(X, y, a0=1e-2, b0=1e-4)
-output
-output2 = VB_Binary_Logit_Predict01(X, output$mu, output$Sigma, output$invSigma)
-source('~/Documents/Git/VBLR/VB_Binary_Logit_Predict01.r', chdir = TRUE)
-output2 = VB_Binary_Logit_Predict01(X, output$mu, output$Sigma, output$invSigma)
-source('~/Documents/Git/VBLR/lam.r', chdir = TRUE)
-output2 = VB_Binary_Logit_Predict01(X, output$mu, output$Sigma, output$invSigma)
-output2
+y=data$y
+output1 = VB_Binary_Logit_Fit(X, y, a0=1e-2, b0=1e-4)
+source('~/Dropbox/Github/VBLR/VB_Binary_Logit_Fit.r', chdir = TRUE)
+source('~/Dropbox/Github/VBLR/bsxfun4times.r', chdir = TRUE)#
+source('~/Dropbox/Github/VBLR/lam.r', chdir = TRUE)#
+source('~/Dropbox/Github/VBLR/VB_Binary_Logit_Fit.r', chdir = TRUE)source('~/Dropbox/Github/VBLR/VB_Binary_Logit_Fit.r', chdir = TRUE)
+source('~/Dropbox/Github/VBLR/VB_Binary_Logit_Fit.r', chdir = TRUE)
+source('~/Dropbox/Github/VBLR/lam.r', chdir = TRUE)
+source('~/Dropbox/Github/VBLR/bsxfun4times.r', chdir = TRUE)
+output1 = VB_Binary_Logit_Fit(X, y, a0=1e-2, b0=1e-4)
+output2 = VB_Binary_Logit_Fit_startAlpha(X, y, a0=1e-2, b0=1e-4)

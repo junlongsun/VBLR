@@ -59,3 +59,12 @@ VB_Binary_Logit_Fit_startAlpha <- function(X, y, a0=1e-2, b0=1e-4)
   output = list(w=muN,V=SigmaN, invV = invSigmaN, E_a = E_a, L = L)
   return(output)
 }
+
+lambdaF <- function(x)
+{
+  sigmoid = 1/(1+exp(-x))
+  out = (1/(2*x)) * (sigmoid-0.5)
+  out[is.nan(out)] = 1/8
+
+  return(out)
+}
